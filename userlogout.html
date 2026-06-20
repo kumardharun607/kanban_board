@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>User Logout</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at top left,
+                    rgba(139, 92, 246, 0.4),
+                    transparent 35%),
+                radial-gradient(circle at bottom right,
+                    rgba(236, 72, 153, 0.35),
+                    transparent 35%),
+                #050816;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .fade-up {
+            animation: fadeUp .8s ease;
+        }
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .spinner {
+            width: 70px;
+            height: 70px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            border-top: 5px solid #ec4899;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+
+        }
+
+        .pulse-text {
+            animation: pulseText 1.5s infinite;
+        }
+
+        @keyframes pulseText {
+
+            0% {
+                opacity: .5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: .5;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body
+    class="min-h-screen flex items-center justify-center px-4 text-white">
+
+    <!-- Background Glow -->
+
+    <div
+        class="fixed -top-20 -left-20 w-72 h-72 bg-purple-600 rounded-full blur-3xl opacity-20 pointer-events-none">
+    </div>
+
+    <div
+        class="fixed -bottom-20 -right-20 w-72 h-72 bg-pink-600 rounded-full blur-3xl opacity-20 pointer-events-none">
+    </div>
+
+    <!-- Message Box -->
+
+    <div
+        id="messageBox"
+        class="hidden fixed top-5 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded-xl font-semibold shadow-xl text-center">
+    </div>
+
+    <!-- Logout Card -->
+
+    <div
+        class="glass-card rounded-3xl p-6 sm:p-8 md:p-10 w-full max-w-md text-center shadow-2xl fade-up">
+
+        <!-- Loader -->
+
+        <div class="flex justify-center mb-6">
+
+            <div class="spinner"></div>
+
+        </div>
+
+        <!-- Title -->
+
+        <h1
+            class="text-2xl sm:text-3xl md:text-4xl font-bold">
+
+            Logging Out...
+
+        </h1>
+
+        <!-- Description -->
+
+        <p
+            class="mt-4 text-sm sm:text-base text-slate-300 pulse-text">
+
+            Please wait while we securely sign you out.
+
+        </p>
+
+        <!-- Status -->
+
+        <div
+            class="mt-6 px-4 py-3 rounded-xl bg-slate-800/70 border border-slate-700">
+
+            <span
+                id="logoutStatus"
+                class="text-pink-400 font-medium">
+
+                Processing logout request...
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script src="user_logout.js"></script>
+
+</body>
+
+</html>

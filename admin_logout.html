@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Logout</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+
+<body class="min-h-screen bg-slate-950 flex items-center justify-center text-white">
+
+
+<!-- Logout Card -->
+
+<div class="w-[90%] max-w-md bg-slate-900 shadow-2xl rounded-2xl p-8 text-center border border-slate-700">
+
+
+    <!-- Icon -->
+
+    <div class="flex justify-center mb-5">
+
+        <div class="w-20 h-20 rounded-full bg-red-600 flex items-center justify-center">
+
+            <svg 
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-10 h-10"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="white">
+
+            <path 
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1"/>
+
+            </svg>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Title -->
+
+
+    <h1 class="text-3xl font-bold mb-3">
+
+        Admin Logout
+
+    </h1>
+
+
+
+    <p id="statusText"
+    class="text-slate-300 text-lg">
+
+        Logging out...
+
+    </p>
+
+
+
+
+    <!-- Loader -->
+
+
+    <div id="loader"
+    class="mt-6 flex justify-center">
+
+
+        <div
+        class="w-10 h-10 border-4 border-slate-500 border-t-red-500 rounded-full animate-spin">
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- Message -->
+
+    <div
+    id="messageBox"
+    class="hidden mt-6 p-4 rounded-xl font-bold text-center">
+
+    </div>
+
+
+
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+<script src="admin_logout.js"></script>
+
+
+</body>
+
+
+</html>

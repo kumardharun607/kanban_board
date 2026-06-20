@@ -1,0 +1,323 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project Registration</title>
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            background:
+                radial-gradient(circle at top left,
+                    rgba(139, 92, 246, 0.4),
+                    transparent 35%),
+                radial-gradient(circle at bottom right,
+                    rgba(236, 72, 153, 0.35),
+                    transparent 35%),
+                #050816;
+
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .fade-up {
+            animation: fadeUp 0.8s ease;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .floating {
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @media(max-width:768px) {
+            .floating {
+                animation: none;
+            }
+        }
+        body::-webkit-scrollbar { display:none; }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav
+        class="sticky top-0 z-50 bg-black/20 backdrop-blur-lg border-b border-purple-500/20">
+
+        <div
+            class="max-w-7xl mx-auto flex justify-end items-center px-4 sm:px-6 lg:px-8 py-4">
+
+            <a href="./front_ui.html">
+
+                <button
+                    id="Homebtn"
+                    class="px-4 sm:px-5 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold hover:scale-105 transition duration-300 shadow-lg">
+
+                    <i class="bi bi-house-door-fill mr-2"></i>
+                    Home
+
+                </button>
+
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- Background Glow -->
+
+    <div
+        class="fixed top-0 left-0 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-purple-600 rounded-full blur-3xl opacity-20">
+    </div>
+
+    <div
+        class="fixed bottom-0 right-0 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-pink-500 rounded-full blur-3xl opacity-20">
+    </div>
+
+    <!-- Main -->
+
+    <div
+        class="min-h-[calc(100vh-80px)] flex items-center justify-center px-4 py-8 sm:py-10">
+
+        <div class="w-full max-w-xl lg:max-w-2xl">
+
+            <!-- Header -->
+
+            <div class="text-center mb-8 sm:mb-10 fade-up">
+
+                <span
+                    class="inline-block px-4 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs sm:text-sm">
+
+                    Project Registration Portal
+
+                </span>
+
+                <h1
+                    class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-5 leading-tight">
+
+                    Register Your
+
+                    <span
+                        class="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+
+                        Project
+
+                    </span>
+
+                </h1>
+
+                <p
+                    class="text-gray-400 mt-4 text-sm sm:text-base px-2">
+
+                    Submit your project details and start tracking progress efficiently.
+
+                </p>
+
+            </div>
+
+            <!-- Form Card -->
+
+            <div
+                class="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl fade-up floating">
+
+                <div
+                    id="messageBox"
+                    class="hidden mb-5 p-3 rounded-lg text-center font-medium">
+                </div>
+
+                <form
+                    id="registerForm"
+                    class="space-y-5 sm:space-y-6">
+
+                    <!-- Full Name -->
+
+                    <div>
+
+                        <label
+                            class="block text-gray-300 mb-2 text-sm sm:text-base">
+
+                            Full Name
+
+                        </label>
+
+                        <input
+                            id="fullname"
+                            type="text"
+                            placeholder="Enter your name"
+                            class="w-full px-4 py-3 rounded-xl bg-slate-900/60 border border-slate-700 text-white text-sm sm:text-base focus:outline-none focus:border-purple-500">
+
+                    </div>
+
+                    <!-- Role -->
+
+                    <div>
+
+                        <label
+                            class="block text-gray-300 mb-2 text-sm sm:text-base">
+
+                            Role
+
+                        </label>
+
+                        <select
+                            id="role"
+                            class="w-full px-4 py-3 rounded-xl bg-slate-900/60 border border-slate-700 text-white text-sm sm:text-base focus:outline-none focus:border-purple-500">
+
+                            <option>Developer</option>
+                            <option>Frontend Developer</option>
+                            <option>Backend Developer</option>
+                            <option>Full Stack Developer</option>
+                            <option>Tester</option>
+                            <option>Project Manager</option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Email -->
+
+                    <div>
+
+                        <label
+                            class="block text-gray-300 mb-2 text-sm sm:text-base">
+
+                            Email
+
+                        </label>
+
+                        <input
+                            id="email"
+                            type="email"
+                            placeholder="Enter Email"
+                            class="w-full px-4 py-3 rounded-xl bg-slate-900/60 border border-slate-700 text-white text-sm sm:text-base focus:outline-none focus:border-purple-500">
+
+                    </div>
+
+                    <!-- Password -->
+
+                    <div>
+
+                        <label
+                            class="block text-gray-300 mb-2 text-sm sm:text-base">
+
+                            Password
+
+                        </label>
+
+                        <div class="relative">
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter password"
+                                class="w-full px-4 py-3 pr-12 rounded-xl bg-slate-900/60 border border-slate-700 text-white text-sm sm:text-base focus:outline-none focus:border-purple-500">
+
+                            <button
+                                type="button"
+                                onclick="togglePassword()"
+                                class="absolute right-3 top-1/2 -translate-y-1/2">
+
+                                <i
+                                    id="eyeIcon"
+                                    class="bi bi-eye-fill text-xl text-fuchsia-500">
+                                </i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Submit -->
+
+                    <div class="pt-2">
+
+                        <button
+                            type="submit"
+                            class="w-full py-3 sm:py-4 rounded-xl font-semibold text-white text-sm sm:text-base bg-gradient-to-r from-purple-600 to-pink-500 hover:scale-[1.02] transition-all duration-300 shadow-lg shadow-pink-500/20">
+
+                            Register Project →
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <!-- Login Link -->
+
+                <div class="text-center mt-6">
+
+                    <p class="text-gray-400 text-sm sm:text-base">
+
+                        Already Have Account?
+
+                        <a
+                            href="userlogin.html"
+                            class="text-pink-400 hover:text-pink-300 font-semibold">
+
+                            Login Here
+
+                        </a>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="userRegister.js"></script>
+
+</body>
+
+</html>
+```

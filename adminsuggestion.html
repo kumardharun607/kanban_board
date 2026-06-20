@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Task Suggestion</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at top left,
+                    rgba(139, 92, 246, 0.4),
+                    transparent 35%),
+                radial-gradient(circle at bottom right,
+                    rgba(236, 72, 153, 0.35),
+                    transparent 35%),
+                #050816;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .fade-up {
+            animation: fadeUp .8s ease;
+        }
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .floating {
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+
+        }
+
+        @media(max-width:768px) {
+
+            .floating {
+                animation: none;
+            }
+
+        }
+
+        textarea {
+            resize: none;
+        }
+    </style>
+
+</head>
+
+<body class="min-h-screen text-white">
+
+    <!-- Message Box -->
+
+    <div
+        id="messageBox"
+        class="hidden fixed top-5 left-1/2 -translate-x-1/2 px-6 py-3 rounded-xl font-semibold z-50 shadow-xl">
+    </div>
+
+    <!-- Background Glow -->
+
+    <div
+        class="fixed -top-20 -left-20 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-purple-600 rounded-full blur-3xl opacity-20 pointer-events-none">
+    </div>
+
+    <div
+        class="fixed -bottom-20 -right-20 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-pink-600 rounded-full blur-3xl opacity-20 pointer-events-none">
+    </div>
+
+    <!-- Navbar -->
+
+    <nav
+        class="sticky top-0 z-50 glass">
+
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+
+            <h1
+                class="text-xl sm:text-2xl font-bold text-center sm:text-left">
+
+                Task Suggestion
+
+            </h1>
+
+            <div
+                class="flex flex-col sm:flex-row gap-3">
+
+                <a href="./front_ui.html">
+
+                    <button
+                        id="Homebtn"
+                        class="w-full sm:w-auto px-5 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-500 hover:scale-105 transition duration-300">
+
+                        Home
+
+                    </button>
+
+                </a>
+
+                <a
+                    href="admindashboard.html"
+                    class="text-center px-5 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 transition">
+
+                    Dashboard
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- Main Content -->
+
+    <div
+        class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+
+        <div
+            class="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl fade-up floating">
+
+            <h2
+                class="text-2xl sm:text-3xl font-bold mb-8 text-center sm:text-left">
+
+                Task Information
+
+            </h2>
+
+            <!-- Task Information -->
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+                <div
+                    class="glass rounded-xl p-4">
+
+                    <h3 class="font-bold text-purple-300 mb-2">
+
+                        Created At
+
+                    </h3>
+
+                    <p id="created_at">
+
+                        Loading...
+
+                    </p>
+
+                </div>
+
+                <div
+                    class="glass rounded-xl p-4">
+
+                    <h3 class="font-bold text-purple-300 mb-2">
+
+                        Created ID
+
+                    </h3>
+
+                    <p id="created_id">
+
+                        Loading...
+
+                    </p>
+
+                </div>
+
+                <div
+                    class="glass rounded-xl p-4">
+
+                    <h3 class="font-bold text-purple-300 mb-2">
+
+                        Project Code
+
+                    </h3>
+
+                    <p id="project_code">
+
+                        Loading...
+
+                    </p>
+
+                </div>
+
+                <div
+                    class="glass rounded-xl p-4">
+
+                    <h3 class="font-bold text-purple-300 mb-2">
+
+                        Status
+
+                    </h3>
+
+                    <p id="status">
+
+                        Loading...
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Task -->
+
+            <div class="mt-8">
+
+                <label
+                    class="block mb-3 text-lg sm:text-xl font-semibold">
+
+                    Task
+
+                </label>
+
+                <div
+                    id="task_text"
+                    class="glass p-4 rounded-xl min-h-[120px] break-words">
+
+                </div>
+
+            </div>
+
+            <!-- Old Suggestion -->
+
+            <div class="mt-8">
+
+                <label
+                    class="block mb-3 text-lg sm:text-xl font-semibold">
+
+                    Already Given Suggestion
+
+                </label>
+
+                <textarea
+                    id="oldSuggestion"
+                    readonly
+                    class="w-full h-32 sm:h-36 bg-slate-900/70 border border-slate-700 rounded-xl p-4 focus:outline-none text-white"></textarea>
+
+            </div>
+
+            <!-- New Suggestion -->
+
+            <div class="mt-8">
+
+                <label
+                    class="block mb-3 text-lg sm:text-xl font-semibold">
+
+                    New Suggestion
+
+                </label>
+
+                <textarea
+                    id="newSuggestion"
+                    placeholder="Enter your suggestion..."
+                    class="w-full h-32 sm:h-36 bg-slate-900/70 border border-slate-700 rounded-xl p-4 focus:outline-none focus:border-purple-500 text-white"></textarea>
+
+            </div>
+
+            <!-- Submit Button -->
+
+            <div
+                class="mt-8 text-center">
+
+                <button
+                    id="submitSuggestion"
+                    class="w-full sm:w-auto px-8 sm:px-12 py-3 rounded-xl font-semibold bg-gradient-to-r from-purple-600 to-pink-500 hover:scale-105 transition duration-300 shadow-lg shadow-pink-500/20">
+
+                    Submit Suggestion
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script src="adminsuggestion.js"></script>
+
+</body>
+
+</html>

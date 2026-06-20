@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Task Details</title>
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at top left,
+                    rgba(139, 92, 246, 0.4),
+                    transparent 35%),
+                radial-gradient(circle at bottom right,
+                    rgba(236, 72, 153, 0.35),
+                    transparent 35%),
+                #050816;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .fade-up {
+            animation: fadeUp .8s ease;
+        }
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .info-card {
+            transition: .3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+
+</head>
+
+<body class="min-h-screen text-white">
+
+    <!-- Navbar -->
+
+    <nav
+        class="sticky top-0 z-50 glass border-b border-purple-500/20">
+
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+
+            <div
+                class="flex flex-col md:flex-row items-center justify-between gap-4">
+
+                <h1
+                    class="text-lg sm:text-xl md:text-2xl font-bold text-center md:text-left">
+
+                    Welcome,
+
+                    <span
+                        id="welcomeUser"
+                        class="text-pink-400">
+
+                        Loading...
+
+                    </span>
+
+                </h1>
+
+                <div
+                    class="flex flex-wrap justify-center gap-3">
+
+                    <a href="./front_ui.html">
+
+                        <button
+                            id="Homebtn"
+                            class="px-5 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-500 hover:scale-105 transition">
+
+                            <i class="bi bi-house-door-fill mr-2"></i>
+                            Home
+
+                        </button>
+
+                    </a>
+
+                    <button
+                        id="logoutBtn"
+                        class="px-5 py-2 rounded-lg bg-gradient-to-r from-red-500 to-pink-500 hover:scale-105 transition">
+
+                        <i class="bi bi-box-arrow-right mr-2"></i>
+                        Logout
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- Glow Effects -->
+
+    <div
+        class="fixed -top-20 -left-20 w-72 h-72 bg-purple-600 rounded-full blur-3xl opacity-20 pointer-events-none">
+    </div>
+
+    <div
+        class="fixed -bottom-20 -right-20 w-72 h-72 bg-pink-600 rounded-full blur-3xl opacity-20 pointer-events-none">
+    </div>
+
+    <!-- Main Content -->
+
+    <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 fade-up">
+
+        <!-- Message Box -->
+
+        <div
+            id="messageBox"
+            class="hidden mb-5 p-4 rounded-xl bg-red-500 text-white text-center">
+        </div>
+
+        <!-- Back Button -->
+
+        <button
+            id="backBtn"
+            class="mb-6 px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 transition">
+
+            <i class="bi bi-arrow-left mr-2"></i>
+
+            Back
+
+        </button>
+
+        <!-- Main Card -->
+
+        <div
+            class="glass rounded-3xl overflow-hidden shadow-2xl">
+
+            <!-- Row 1 -->
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-2">
+
+                <div
+                    class="p-5 border border-slate-700 info-card">
+
+                    <h3
+                        class="font-bold text-base sm:text-lg">
+
+                        Task ID :
+
+                        <span
+                            id="taskId"
+                            class="text-pink-400 break-all">
+                        </span>
+
+                    </h3>
+
+                </div>
+
+                <div
+                    class="p-5 border border-slate-700 info-card">
+
+                    <h3
+                        class="font-bold text-base sm:text-lg">
+
+                        Project Code :
+
+                        <span
+                            id="projectCode"
+                            class="text-purple-400 break-all">
+                        </span>
+
+                    </h3>
+
+                </div>
+
+            </div>
+
+            <!-- Row 2 -->
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-2">
+
+                <div
+                    class="p-5 border border-slate-700 info-card">
+
+                    <h3
+                        class="font-bold mb-3">
+
+                        Created At
+
+                    </h3>
+
+                    <p
+                        id="createdAt"
+                        class="text-gray-300 break-words">
+                    </p>
+
+                </div>
+
+                <div
+                    class="p-5 border border-slate-700 info-card">
+
+                    <h3
+                        class="font-bold">
+
+                        Created By ID :
+
+                        <span
+                            id="createdId"
+                            class="text-yellow-400">
+                        </span>
+
+                    </h3>
+
+                    <button
+                        id="showCreatorBtn"
+                        class="mt-4 bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-xl transition">
+
+                        More Details
+
+                    </button>
+
+                    <div
+                        id="creatorBox"
+                        class="hidden mt-4 bg-slate-800 p-4 rounded-xl">
+
+                        <p class="mb-2">
+
+                            Name :
+
+                            <span
+                                id="createdName"
+                                class="text-green-400">
+                            </span>
+
+                        </p>
+
+                        <p>
+
+                            Role :
+
+                            <span
+                                id="createdRole"
+                                class="text-cyan-400">
+                            </span>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Row 3 -->
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-2">
+
+                <div
+                    class="p-5 border border-slate-700 info-card">
+
+                    <h3
+                        class="font-bold">
+
+                        Assigned Name
+
+                    </h3>
+
+                    <p
+                        id="assignName"
+                        class="mt-2 text-gray-300 break-words">
+                    </p>
+
+                </div>
+
+                <div
+                    class="p-5 border border-slate-700 info-card">
+
+                    <h3
+                        class="font-bold">
+
+                        Assigned Role
+
+                    </h3>
+
+                    <p
+                        id="assignRole"
+                        class="mt-2 text-gray-300 break-words">
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Row 4 -->
+
+            <div
+                class="p-5 sm:p-8 border border-slate-700">
+
+                <h2
+                    class="text-lg sm:text-xl font-bold mb-5">
+
+                    Admin Suggestions
+
+                </h2>
+
+                <div
+                    id="suggestion"
+                    class="bg-slate-800 rounded-xl p-4 sm:p-6 min-h-[150px] text-gray-300 break-words">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script src="taskdetail.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Create Task</title>
+
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+<style>
+
+
+body{
+
+background:
+
+radial-gradient(
+circle at top left,
+rgba(139,92,246,0.45),
+transparent 35%
+),
+
+radial-gradient(
+circle at bottom right,
+rgba(236,72,153,0.4),
+transparent 35%
+),
+
+#050816;
+
+}
+
+
+
+.glass{
+
+background:rgba(255,255,255,0.06);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,0.12);
+
+}
+
+
+
+.input-style{
+
+width:100%;
+
+padding:14px;
+
+margin-top:8px;
+
+border-radius:12px;
+
+background:#0f172a;
+
+border:1px solid rgba(255,255,255,.1);
+
+outline:none;
+
+transition:.3s;
+
+}
+
+
+
+.input-style:focus{
+
+border-color:#a855f7;
+
+box-shadow:0 0 15px rgba(168,85,247,.5);
+
+}
+
+
+
+label{
+
+font-weight:600;
+
+color:#e2e8f0;
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+
+<body class="text-white min-h-screen">
+
+
+
+<div class="min-h-screen p-4 sm:p-6">
+
+
+
+<!-- Message Box -->
+
+
+<div
+id="messageBox"
+
+class="hidden fixed top-5 left-1/2 
+-translate-x-1/2 
+px-6 py-3 
+rounded-xl
+font-bold
+z-50
+shadow-lg">
+
+</div>
+
+
+
+
+
+
+<!-- Navigation -->
+
+
+<div 
+class="flex flex-col sm:flex-row 
+justify-end 
+gap-3 
+mb-8">
+
+
+
+<a href="./front_ui.html">
+
+<button
+
+id="Homebtn"
+
+class="
+w-full sm:w-auto
+px-6 py-3
+rounded-xl
+font-semibold
+shadow-lg
+bg-gradient-to-r
+from-purple-600
+to-pink-500
+
+hover:scale-105
+
+transition">
+
+
+Home
+
+
+</button>
+
+
+</a>
+
+
+
+
+
+<button
+
+id="dashboardBtn"
+
+class="
+w-full sm:w-auto
+px-6 py-3
+rounded-xl
+font-semibold
+shadow-lg
+bg-purple-600
+
+hover:bg-purple-700
+
+hover:scale-105
+
+transition">
+
+
+Dashboard
+
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Main Card -->
+
+
+<div
+
+class="
+max-w-3xl
+mx-auto
+glass
+rounded-3xl
+p-5
+sm:p-8
+shadow-2xl">
+
+
+
+
+
+<h1
+
+class="
+text-3xl
+sm:text-4xl
+font-bold
+text-center
+mb-8">
+
+
+Create New Task
+
+
+</h1>
+
+
+
+
+
+
+
+
+<form id="createTaskForm">
+
+
+
+
+
+<!-- Assigned ID -->
+
+
+<div class="mb-6">
+
+
+<label>
+
+Assigned ID
+
+</label>
+
+
+<input
+
+type="text"
+
+id="assigned_id"
+
+placeholder="Enter assigned user id"
+
+class="input-style">
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Project Code -->
+
+
+<div class="mb-6">
+
+
+<label>
+
+Project Code
+
+</label>
+
+
+<input
+
+type="text"
+
+id="project_code"
+
+placeholder="Enter project code"
+
+class="input-style">
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Task -->
+
+
+<div class="mb-6">
+
+
+<label>
+
+Task
+
+</label>
+
+
+
+<textarea
+
+id="task"
+
+rows="4"
+
+placeholder="Enter task description"
+
+class="input-style resize-none"></textarea>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Suggestion -->
+
+
+<div class="mb-6">
+
+
+<label>
+
+Suggestion
+
+</label>
+
+
+
+<textarea
+
+id="suggestion"
+
+rows="4"
+
+placeholder="Enter suggestion"
+
+class="input-style resize-none"></textarea>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- Submit Button -->
+
+
+<button
+
+type="submit"
+
+
+class="
+w-full
+
+py-4
+
+rounded-xl
+
+font-bold
+
+text-lg
+
+
+bg-gradient-to-r
+
+from-purple-600
+
+to-pink-500
+
+
+hover:scale-[1.02]
+
+transition
+
+shadow-xl">
+
+
+Create Task
+
+
+</button>
+
+
+
+
+</form>
+
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+<script src="admin_create_task.js"></script>
+
+
+
+</body>
+
+</html>

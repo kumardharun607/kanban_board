@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Admin Dashboard</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+body{
+background:
+radial-gradient(
+circle at top left,
+rgba(139,92,246,0.4),
+transparent 35%
+),
+radial-gradient(
+circle at bottom right,
+rgba(236,72,153,0.35),
+transparent 35%
+),
+#050816;
+}
+
+.glass{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.1);
+}
+
+</style>
+
+</head>
+
+<body class="min-h-screen text-white p-8">
+
+<div class="max-w-7xl mx-auto">
+
+<div
+id="messageBox"
+class="hidden
+fixed
+top-5
+left-1/2
+-translate-x-1/2
+z-[9999]
+p-4
+rounded-xl
+text-center
+font-semibold
+min-w-[350px]">
+</div>
+
+<nav
+class="glass rounded-3xl p-5 flex justify-between items-center">
+
+<div>
+
+<h1 class="text-3xl font-bold">
+
+Welcome
+
+<span id="adminName">
+
+Admin
+
+</span>
+
+</h1>
+
+</div>
+
+<div class="flex gap-4">
+    <a href="./front_ui.html">
+    <button
+id="Homebtn"
+class=" px-5 py-3 rounded-xl bg-gradient-to-r
+from-purple-600
+to-pink-500">
+
+Home
+
+</button>
+</a>
+
+<button
+id="createTaskBtn"
+class="bg-gradient-to-r
+from-purple-600
+to-pink-500 px-5 py-3 rounded-xl">
+
+Create Task
+
+</button>
+
+<button
+id="logoutBtn"
+class="bg-red-500 px-5 py-3 rounded-xl">
+
+Logout
+
+</button>
+
+</div>
+
+</nav>
+
+<div class="mt-8 glass rounded-3xl p-5">
+
+<h2 class="text-2xl font-bold mb-5">
+
+Task Dashboard
+
+</h2>
+
+<div class="overflow-x-auto">
+
+<table
+class="w-full text-center table-fixed">
+
+<thead>
+
+<tr>
+
+<th>Task Id</th>
+
+<th>Created By</th>
+
+<th>Assigned To</th>
+
+<th>Project</th>
+
+<th>Task</th>
+
+<th>Status</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="taskTableBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+<div
+id="editModal"
+class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-50">
+
+<div
+class="
+glass
+w-[700px]
+rounded-3xl
+p-8
+shadow-[0_0_35px_rgba(168,85,247,.6)]
+">
+
+<h2 class="text-2xl font-bold mb-5">
+
+Update Task
+
+</h2>
+
+<form id="updateTaskForm">
+
+<input type="hidden" id="edit_task_id">
+
+<div class="grid grid-cols-2 gap-4">
+
+<input
+id="edit_created_id"
+placeholder="Created Id"
+class="p-3 rounded bg-slate-900 text-white">
+
+<input
+id="edit_created_at"
+placeholder="Created At"
+class="p-3 rounded bg-slate-900 text-white">
+
+<input
+id="edit_assigned_id"
+placeholder="Assigned Id"
+class="p-3 rounded bg-slate-900 text-white">
+
+<input
+id="edit_project_code"
+placeholder="Project Code"
+class="p-3 rounded bg-slate-900 text-white">
+
+<select
+id="edit_status"
+class="p-3 rounded bg-slate-900 text-white">
+
+<option>To Do</option>
+<option>Doing</option>
+<option>Done</option>
+
+</select>
+
+</div>
+
+<textarea
+id="edit_tasks"
+class="w-full mt-4 p-3 rounded bg-slate-900 text-white"
+rows="4">
+</textarea>
+
+<div class="mt-5 flex gap-3">
+
+<button
+type="submit"
+class="bg-green-500 hover:bg-green-600 px-5 py-3 rounded-xl">
+
+Update
+
+</button>
+
+<button
+type="button"
+id="closeModal"
+class="bg-red-500 hover:bg-red-600 px-5 py-3 rounded-xl">
+
+Cancel
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script src="admindashboard.js"></script>
+
+</body>
+
+</html>
